@@ -10,7 +10,7 @@
 costumes "inflator/char/assets/blank.svg" as _CHAR_NULLCOS;
 costumes "inflator/char/assets/blank.svg" as _CHAR_COSTUME;
 
-list unicode = file ```..\_unicode.txt```;
+list unicode = file ```inflator/char/assets/unicode.txt```;
 
 func _char_inner_ord(char, low, high) {
     # The item #(str) of (list) block is a pretty slow block and ideally 
