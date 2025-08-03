@@ -7,7 +7,7 @@ It is designed to be used with [inflator](https://github.com/faretek1/inflator).
 
 ## Credits
 
-...
+- Unicode list: https://scratch.mit.edu/projects/616351443/
 
 ## Installation
 
