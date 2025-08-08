@@ -12,25 +12,26 @@ costumes "inflator/char/assets/blank.svg" as _CHAR_COSTUME;
 
 list unicode = file ```inflator/char/assets/unicode.txt```;
 
-func _char_inner_ord(char, low, high) {
-    # The item #(str) of (list) block is a pretty slow block and ideally 
-    # you wouldn't use it with large lists (it's a linear search)
+# You cannot treat characters so simply as binary search, because certain characters have special behaviour
+# func _char_inner_ord(char, low, high) {
+#     # The item #(str) of (list) block is a pretty slow block and ideally 
+#     # you wouldn't use it with large lists (it's a linear search)
 
-    # But in this case, you can actually just binary sort for a unicode character lol
-    local low = $low;
-    local high = $high;
+#     # But in this case, you can actually just binary sort for a unicode character lol
+#     local low = $low;
+#     local high = $high;
 
-    forever{
-        local mid = (low + high) // 2;
-        if $char > unicode[mid] {
-            low = mid;
-        } elif $char < unicode[mid] {
-            high = mid + 1;
-        } else {
-            return mid;
-        }
-    }
-}
+#     forever{
+#         local mid = (low + high) // 2;
+#         if $char > unicode[mid] {
+#             low = mid;
+#         } elif $char < unicode[mid] {
+#             high = mid + 1;
+#         } else {
+#             return mid;
+#         }
+#     }
+# }
 
 # Return the unicode index of char
 # Only works with single chars
@@ -69,7 +70,7 @@ func ord(char) {
             }
             
         } else {
-            return _char_inner_ord($char, 1, length unicode);
+            return $char in unicode;
         }
     }
 }
